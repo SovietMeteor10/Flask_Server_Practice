@@ -1,0 +1,23 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>Flask Test Website</title>
+<link rel="stylesheet" href="src/index.css">
+</head>
+<body>
+
+<h1>Welcome to AJ and TJ's Website</h1>
+<p>This is our website for working out how to use a flask server</p>
+
+<form action="/submit" method="post">
+	<label for="namefield">Name:</label>
+	<input type="text" id="namefield" name="name">
+	<label for="agefield">Age:</label>
+	<input type="number" id="agefield" name="age">
+	<label for="degreefield">Degree:</label>
+	<input type="text" id="degreefield" name="degree">
+	<input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

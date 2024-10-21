@@ -36,8 +36,13 @@ jobs:
         run: pip install pytest
 
       - name: Run unit tests
+<<<<<<< HEAD
         run: pytest tests/
 
+=======
+	run: pytest *.py
+	
+>>>>>>> 385572ddef5911134d9f9973f09618af24ebebf3
   deploy-to-impaas:
     needs: python-formatting
     runs-on: ubuntu-latest

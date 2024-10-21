@@ -18,9 +18,13 @@ def submit():
     )
 
 
-@app.route("/query", methods=["GET"])
-def process_query(string):
-    query_string = request.args.get(string)
+@app.route("/query")
+def get_query():
+    q = request.args.get("q")
+    return process_query(q)
+
+
+def process_query(query_string):
     if query_string == "dinosaurs":
         return "Dinosaurs ruled the Earth 200 million years ago"
     if query_string == "asteroids":

@@ -20,7 +20,9 @@ def submit():
 
 @app.route("/query", methods=["GET"])
 def process_query(string):
+    query_string = request.args.get('q')
     if string == "dinosaurs":
         return "Dinosaurs ruled the Earth 200 million years ago"
     if string == "asteroids":
         return "Unknown"
+    return "Query not recognised"

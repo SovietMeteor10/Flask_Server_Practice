@@ -36,7 +36,7 @@ jobs:
         run: pip install pytest
 
       - name: Run unit tests
-        run: pytest tests/
+        run: pytest *.py
 
   deploy-to-impaas:
     needs: python-formatting

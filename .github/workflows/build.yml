@@ -35,6 +35,9 @@ jobs:
       - name: Install pytest
         run: pip install pytest
 
+      - name: Install flask
+        run: pip install flask
+
       - name: Run unit tests
         run: pytest app_test.py
 

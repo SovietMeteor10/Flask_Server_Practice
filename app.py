@@ -16,3 +16,13 @@ def submit():
     return render_template(
         "hello.html", name=input_name, age=input_age, degree=input_degree
     )
+
+#@app.route('/query', methods=['GET'])
+#def get_query():
+
+def process_query(string):
+    if string == "dinosaurs":
+        return "Dinosaurs ruled the Earth 200 million years ago"
+    if string == "asteroids":
+        return "Unknown"
+    

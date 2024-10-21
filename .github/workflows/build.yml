@@ -18,7 +18,7 @@ jobs:
         run: pip install flake8
 
       - name: Run flake8
-        run: flake8
+        run: flake8 .
 
   builds:
     needs: python-formatting
@@ -36,8 +36,8 @@ jobs:
         run: pip install pytest
 
       - name: Run unit tests
-        run: pytest
-	
+        run: pytest tests/
+
   deploy-to-impaas:
     needs: python-formatting
     runs-on: ubuntu-latest

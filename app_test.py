@@ -20,3 +20,10 @@ def test_for_addition():
 
 def test_for_multiplication():
     assert process_query("What is 81 multiplied by 39?") == "3159"
+
+
+def test_for_multiplication():
+    assert (
+        process_query("Which of the following numbers is the largest: 67, 28, 23?")
+        == "67"
+    )

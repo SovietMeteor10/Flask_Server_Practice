@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import re
+import math
 
 app = Flask(__name__)
 
@@ -37,6 +38,9 @@ def process_query(query_string):
         return str(sum([int(num) for num in numbers]))
     if "multiplied" in query_string:
         numbers = re.findall(r"\d+", query_string)
-        mul = 1
-        return str([mul * int(num) for num in numbers])
+        mul_vals = [int(num) for num in numbers]
+        return math.prod(mul_vals)
+    if "following numbers is the largest" in query_string:
+        numbers = re.findall(r"\d+", query_string)
+        return str(max([int(num) for num in numbers]))
     return "Query not recognised"

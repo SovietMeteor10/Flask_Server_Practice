@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import re
 
 app = Flask(__name__)
 
@@ -31,4 +32,7 @@ def process_query(query_string):
         return "Unknown"
     if query_string == "What is your name?":
         return "Team_Wun"
+    if "plus" in query_string:
+        numbers = re.findall(r'\d+', query_string)
+        return sum([int(num) for num in numbers])
     return "Query not recognised"

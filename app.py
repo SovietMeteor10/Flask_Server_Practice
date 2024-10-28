@@ -39,8 +39,8 @@ def process_query(query_string):
     if "multiplied" in query_string:
         numbers = re.findall(r"\d+", query_string)
         mul_vals = [int(num) for num in numbers]
-        return math.prod(mul_vals)
-    if "following numbers is the largest" in query_string:
+        return str(math.prod(mul_vals))
+    if "following numbers is the largest:" in query_string:
         numbers = re.findall(r"\d+", query_string)
         return str(max([int(num) for num in numbers]))
     return "Query not recognised"

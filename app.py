@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import re
 import math
+import sympy
 
 app = Flask(__name__)
 
@@ -56,5 +57,11 @@ def process_query(query_string):
             for i in mul_vals
             if (pow(i, 1 / 2).is_integer() and pow(i, 1 / 3).is_integer())
         ]
-        return str(val)
+        return ", ".join(map(str, val))
+    if "are primes" in query_string:
+        numbers = re.findall(r"\d+", query_string)
+        vals = [int(num) for num in numbers]
+        primes = [i for i in vals if isprime(i)]
+        return ", ".join(map(str, val))
+
     return "Query not recognised"

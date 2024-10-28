@@ -62,20 +62,20 @@ def process_query(query_string):
 
     if "are primes" in query_string:
         numbers = re.findall(r"\d+", query_string)
-    vals = [int(num) for num in numbers]
-    primes = []
-    for i in vals:
-        if i < 2:
-            continue
-        is_prime = True
-        for j in range(2, math.isqrt(i) + 1):
-            if i % j == 0:
-                is_prime = False
-                break
-        if is_prime:
-            primes.append(i)
+        vals = [int(num) for num in numbers]
+        primes = []
+        for i in vals:
+            if i < 2:
+                continue
+            is_prime = True
+            for j in range(2, math.isqrt(i) + 1):
+                if i % j == 0:
+                    is_prime = False
+                    break
+            if is_prime:
+                primes.append(i)
 
-    return ", ".join(map(str, primes))
+        return ", ".join(map(str, primes))
 
     if "power" in query_string:
         numbers = re.findall(r"\d+", query_string)

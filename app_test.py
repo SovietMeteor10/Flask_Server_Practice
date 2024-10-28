@@ -37,7 +37,23 @@ def test_for_largest():
         == "67"
     )
 
+
 def test_for_cube_and_square():
-    assert process_query("Which of the\
+    assert (
+        process_query(
+            "Which of the\
      following numbers is both a square\
-      and a cube: 64, 31, 19?") == "64"
+      and a cube: 64, 31, 19?"
+        )
+        == "64"
+    )
+
+
+def test_minus():
+    assert (
+        process_query(
+            "What is 56\
+     minus 47?"
+        )
+        == "9"
+    )

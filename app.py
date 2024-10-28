@@ -36,6 +36,11 @@ def process_query(query_string):
     if "plus" in query_string:
         numbers = re.findall(r"\d+", query_string)
         return str(sum([int(num) for num in numbers]))
+    if "minus" in query_string:
+        numbers = re.findall(r"\d+", query_string)
+        vals = [int(num) for num in numbers]
+        return str((vals[0] - vals[1]))
+
     if "multiplied" in query_string:
         numbers = re.findall(r"\d+", query_string)
         mul_vals = [int(num) for num in numbers]
@@ -46,6 +51,10 @@ def process_query(query_string):
     if "following numbers is both a square and a cube:" in query_string:
         numbers = re.findall(r"\d+", query_string)
         mul_vals = [int(num) for num in numbers]
-        val = [i for i in mul_vals if (pow(i,1/2).is_integer() and pow(i,1/3).is_integer()]
+        val = [
+            i
+            for i in mul_vals
+            if (pow(i, 1 / 2).is_integer() and pow(i, 1 / 3).is_integer())
+        ]
         return str(val)
     return "Query not recognised"

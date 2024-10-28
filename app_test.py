@@ -61,6 +61,10 @@ def test_minus():
 
 def test_isprime():
     assert (
-        process_query("Which of the following numbers are primes: 13, 14, 19, 51, 46?")
+        process_query(
+            "Which of the\
+         following numbers are primes:\
+          13, 14, 19, 51, 46?"
+        )
         == "13, 19"
     )

@@ -50,7 +50,7 @@ def process_query(query_string):
         numbers = re.findall(r"\d+", query_string)
         return str(max([int(num) for num in numbers]))
 
-    if "following numbers is both a square and a cube:" in query_string:
+    if "is both a square and a cube:" in query_string:
         numbers = re.findall(r"\d+", query_string)
         mul_vals = [int(num) for num in numbers]
         val = [

@@ -31,8 +31,9 @@ def test_for_multiplication():
 def test_for_largest():
     assert (
         process_query(
-            "Which of the following numbers\
-         is the largest: 67, 28, 23?"
+            "Which of the following\
+             numbers is the largest:\
+              67, 28, 23?"
         )
         == "67"
     )

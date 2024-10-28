@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import re
 import math
-import sympy
+from sympy import *
 
 app = Flask(__name__)
 
@@ -63,5 +63,10 @@ def process_query(query_string):
         vals = [int(num) for num in numbers]
         primes = [i for i in vals if sympy.isprime(i)]
         return ", ".join(map(str, primes))
+
+    if "power" in query_string:
+        numbers = re.findall(r"\d+", query_string)
+        vals = [int(num) for num in numbers]
+        return str(vals[0] ** vals[1])
 
     return "Query not recognised"

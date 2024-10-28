@@ -68,3 +68,7 @@ def test_isprime():
         )
         == "13, 19"
     )
+
+
+def test_is_power():
+    assert (process_query("What is 2 to the power of 4?")) == "16"

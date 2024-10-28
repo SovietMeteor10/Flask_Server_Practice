@@ -16,3 +16,6 @@ def test_for_name():
 
 def test_for_addition():
     assert process_query("What is 37 plus 38?") == "75"
+
+def test_for_multiplication():
+    assert process_query("What is 81 multiplied by 39?") == "3159"

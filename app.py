@@ -43,4 +43,9 @@ def process_query(query_string):
     if "following numbers is the largest:" in query_string:
         numbers = re.findall(r"\d+", query_string)
         return str(max([int(num) for num in numbers]))
+    if "following numbers is both a square and a cube:" in query_string:
+        numbers = re.findall(r"\d+", query_string)
+        mul_vals = [int(num) for num in numbers]
+        val = [i for i in mul_vals if (pow(i,1/2).is_integer() and pow(i,1/3).is_integer()]
+        return str(val)
     return "Query not recognised"

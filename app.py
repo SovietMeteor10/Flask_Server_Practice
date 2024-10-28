@@ -17,7 +17,6 @@ def submit():
         "hello.html", name=input_name, age=input_age, degree=input_degree
     )
 
-
 @app.route("/query")
 def get_query():
     q = request.args.get("q")
@@ -29,4 +28,6 @@ def process_query(query_string):
         return "Dinosaurs ruled the Earth 200 million years ago"
     if query_string == "asteroids":
         return "Unknown"
+    if query_string == "What is your name?":
+        return "Team_Won"
     return "Query not recognised"

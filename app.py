@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request
 import re
 import math
-from sympy import *
 
 app = Flask(__name__)
 
@@ -46,9 +45,11 @@ def process_query(query_string):
         numbers = re.findall(r"\d+", query_string)
         mul_vals = [int(num) for num in numbers]
         return str(math.prod(mul_vals))
+
     if "following numbers is the largest:" in query_string:
         numbers = re.findall(r"\d+", query_string)
         return str(max([int(num) for num in numbers]))
+
     if "following numbers is both a square and a cube:" in query_string:
         numbers = re.findall(r"\d+", query_string)
         mul_vals = [int(num) for num in numbers]
@@ -58,11 +59,23 @@ def process_query(query_string):
             if (pow(i, 1 / 2).is_integer() and pow(i, 1 / 3).is_integer())
         ]
         return ", ".join(map(str, val))
+
     if "are primes" in query_string:
         numbers = re.findall(r"\d+", query_string)
-        vals = [int(num) for num in numbers]
-        primes = [i for i in vals if sympy.isprime(i)]
-        return ", ".join(map(str, primes))
+    vals = [int(num) for num in numbers]
+    primes = []
+    for i in vals:
+        if i < 2:
+            continue
+        is_prime = True
+        for j in range(2, math.isqrt(i) + 1):
+            if i % j == 0:
+                is_prime = False
+                break
+        if is_prime:
+            primes.append(i)
+
+    return ", ".join(map(str, primes))
 
     if "power" in query_string:
         numbers = re.findall(r"\d+", query_string)

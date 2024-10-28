@@ -34,5 +34,5 @@ def process_query(query_string):
         return "Team_Wun"
     if "plus" in query_string:
         numbers = re.findall(r"\d+", query_string)
-        return sum([int(num) for num in numbers])
+        return str(sum([int(num) for num in numbers]))
     return "Query not recognised"

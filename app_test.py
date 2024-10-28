@@ -15,4 +15,4 @@ def test_for_name():
 
 
 def test_for_addition():
-    assert process_query("What is 37 plus 38") == 75
+    assert process_query("What is 37 plus 38?") == "75"

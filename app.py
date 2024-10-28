@@ -38,5 +38,5 @@ def process_query(query_string):
     if "multiplied" in query_string:
         numbers = re.findall(r"\d+", query_string)
         mul = 1
-        return str([mul*int(num) for num in numbers])
+        return str([mul * int(num) for num in numbers])
     return "Query not recognised"

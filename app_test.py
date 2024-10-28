@@ -43,7 +43,7 @@ def test_for_cube_and_square():
         process_query(
             "Which of the\
      following numbers is both a square\
-      and a cube: 64, 31, 19?"
+      and a cube:64, 31, 19?"
         )
         == "64"
     )
@@ -56,4 +56,11 @@ def test_minus():
      minus 47?"
         )
         == "9"
+    )
+
+
+def test_isprime():
+    assert (
+        process_query("Which of the following numbers are primes: 13, 14, 19, 51, 46?")
+        == "13, 19"
     )

@@ -61,7 +61,7 @@ def process_query(query_string):
     if "are primes" in query_string:
         numbers = re.findall(r"\d+", query_string)
         vals = [int(num) for num in numbers]
-        primes = [i for i in vals if isprime(i)]
+        primes = [i for i in vals if sympy.isprime(i)]
         return ", ".join(map(str, val))
 
     return "Query not recognised"

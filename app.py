@@ -25,7 +25,7 @@ def submit():
 def submit_gitname():
     input_name = request.form.get("username")
 
-    response = requests.get(f"https://api.github.com/users/{input_name}/repos")
+    response = request.get(f"https://api.github.com/users/{input_name}/repos")
 
     if response.status_code == 200:
         repos = response.json()  # Parse the JSON response

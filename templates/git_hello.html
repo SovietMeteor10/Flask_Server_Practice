@@ -2,5 +2,29 @@
 <html>
   <body>
     <h1>Hello {{ username }}!</h1>
+    <div>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Repository Name</th>
+            <th>Last Updated</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if repo_data_list %}
+            {% for repo in repo_data_list %}
+              <tr>
+                <td>{{ repo[0] }}</td>
+                <td>{{ repo[1] }}</td>
+              </tr>
+            {% endfor %}
+          {% else %}
+            <tr>
+              <td colspan="2">No repositories found.</td>
+            </tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
   </body>
 </html>

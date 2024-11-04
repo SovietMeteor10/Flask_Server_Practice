@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Flask Test Website</title>
-<link rel="stylesheet" href="styles.css"/>
+<link rel="stylesheet" href="/static/styles.css"/>
 </head>
 <body>
 
@@ -16,6 +16,12 @@
 	<input type="number" id="agefield" name="age">
 	<label for="degreefield">Degree:</label>
 	<input type="text" id="degreefield" name="degree">
+	<input type="submit" value="Submit">
+</form>
+
+<form action="/submit" method="post">
+	<label for="usernamefield">Name:</label>
+	<input type="text" id="usernamefield" name="username">
 	<input type="submit" value="Submit">
 </form>
 

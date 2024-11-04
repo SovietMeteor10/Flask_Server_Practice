@@ -5,8 +5,16 @@
 </head>
 <body>
     <div class="page-content">
-      <h1>Hello {{ username }}!</h1>
-      <div class="table-wrapper">
+        <h1>Hello {{ username }}!</h1>
+        
+        <div>
+            <h2>Commit Counts</h2>
+            <ul>
+                <li>Commits in the last week: {{ commits_last_week }}</li>
+            </ul>
+        </div>
+
+        <div class="table-wrapper">
             <table border="1">
                 <thead>
                     <tr>

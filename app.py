@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 import re
 import math
 import requests
+from datetime import datetime, timedelta
 
 app = Flask(__name__)
 
@@ -26,14 +27,15 @@ def submit_gitname():
     input_name = request.form.get("username")
 
     response = requests.get(f"https://api.github.com/users/{input_name}/repos")
-
     repo_data_list = []
+
+    # Initialize commit counters
+    commits_last_week = 0
 
     if response.status_code == 200:
         repos = response.json()
 
         for repo in repos:
-
             commits_response = requests.get(
                 repo["commits_url"].replace("{/sha}", "")
             )
@@ -42,6 +44,15 @@ def submit_gitname():
                 commits = commits_response.json()
 
                 if commits:
+
+                    for commit in commits:
+
+                        commit_date = datetime.fromisoformat(
+                            commit["commit"]["committer"]["date"][:-1]
+                        )  # Parse date
+                        # Count commits in the last week
+                        if commit_date >= datetime.now() - timedelta(weeks=1):
+                            commits_last_week += 1
 
                     latest_commit = commits[0]
                     author_name = latest_commit["commit"]["author"]["name"]
@@ -69,7 +80,10 @@ def submit_gitname():
                 )
 
     return render_template(
-        "git_hello.html", username=input_name, repo_data_list=repo_data_list
+        "git_hello.html",
+        username=input_name,
+        repo_data_list=repo_data_list,
+        commits_last_week=commits_last_week,
     )
 
 

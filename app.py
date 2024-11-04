@@ -29,8 +29,6 @@ def submit_gitname():
 
     if response.status_code == 200:
 
-        output = response.json()
-
         repo_data_list = [
             [repo["full_name"], repo["pushed_at"]] for repo in response.json()
         ]

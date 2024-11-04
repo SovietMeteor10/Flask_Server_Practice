@@ -51,9 +51,9 @@ def process_query(query_string):
         return str(max([int(num) for num in numbers]))
 
     if "is both a square and a cube:" in query_string:
-        
-        numbers = re.findall(r"\d+", query_string) 
-        mul_vals = [int(num) for num in numbers] 
+
+        numbers = re.findall(r"\d+", query_string)
+        mul_vals = [int(num) for num in numbers]
         val = [
             i
             for i in mul_vals
@@ -84,5 +84,3 @@ def process_query(query_string):
         return str(vals[0] ** vals[1])
 
     return "Query not recognised"
-
-

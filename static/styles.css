@@ -15,5 +15,8 @@ body {
     height: calc(100vh - 100px);
 }
 
-
-
+.form-details{
+    display: flex;
+    flex-direction: column;
+    width: 200px
+}

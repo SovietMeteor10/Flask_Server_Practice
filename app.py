@@ -20,6 +20,7 @@ def submit():
         "hello.html", name=input_name, age=input_age, degree=input_degree
     )
 
+
 @app.route("/submit_gitname", methods=["POST"])
 def submit_gitname():
     input_name = request.form.get("username")

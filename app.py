@@ -26,48 +26,50 @@ def submit_gitname():
     input_name = request.form.get("username")
 
     response = requests.get(f"https://api.github.com/users/{input_name}/repos")
-    
+
     repo_data_list = []
 
     if response.status_code == 200:
-        repos = response.json()  
+        repos = response.json()
 
         for repo in repos:
-            
-            commits_response = requests.get(repo["commits_url"].replace('{/sha}', ''))
 
-           
+            commits_response = requests.get(repo["commits_url"].replace("{/sha}", ""))
+
             if commits_response.status_code == 200:
                 commits = commits_response.json()
 
-                
                 if commits:
-                    
-                    latest_commit = commits[0]  
+
+                    latest_commit = commits[0]
                     author_name = latest_commit["commit"]["author"]["name"]
                     commit_sha = latest_commit["sha"]
                     commit_message = latest_commit["commit"]["message"]
 
-                    
-                    repo_data_list.append([
-                        repo["full_name"],
-                        repo["pushed_at"],
-                        author_name,
-                        commit_sha,
-                        commit_message
-                    ])
+                    repo_data_list.append(
+                        [
+                            repo["full_name"],
+                            repo["pushed_at"],
+                            author_name,
+                            commit_sha,
+                            commit_message,
+                        ]
+                    )
             else:
-                 repo_data_list.append([
+                repo_data_list.append(
+                    [
                         repo["full_name"],
                         repo["pushed_at"],
                         "No Author Listed",
                         "No Commit Hash Listed",
-                        "No Commit Message Listed"
-                    ])
+                        "No Commit Message Listed",
+                    ]
+                )
 
     return render_template(
         "git_hello.html", username=input_name, repo_data_list=repo_data_list
     )
+
 
 @app.route("/query")
 def get_query():

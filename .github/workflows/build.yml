@@ -32,11 +32,8 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install pytest
-        run: pip install pytest
-
-      - name: Install flask
-        run: pip install flask
+      - name: Install requirements
+        run: pip install -r requirements.txt
 
       - name: Run unit tests
         run: pytest app_test.py

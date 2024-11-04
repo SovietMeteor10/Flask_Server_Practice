@@ -34,7 +34,9 @@ def submit_gitname():
 
         for repo in repos:
 
-            commits_response = requests.get(repo["commits_url"].replace("{/sha}", ""))
+            commits_response = requests.get(
+                repo["commits_url"].replace("{/sha}", "")
+            )
 
             if commits_response.status_code == 200:
                 commits = commits_response.json()

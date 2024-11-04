@@ -20,6 +20,11 @@ def submit():
     )
 
 
+def submit_gitname():
+    input_name = request.form.get("name")
+    return render_template("git_hello.html", username=input_name)
+
+
 @app.route("/query")
 def get_query():
     q = request.args.get("q")

@@ -21,7 +21,7 @@ def submit():
 
 
 def submit_gitname():
-    input_name = request.form.get("name")
+    input_name = request.form.get("username")
     return render_template("git_hello.html", username=input_name)
 
 

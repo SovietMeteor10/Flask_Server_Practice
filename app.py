@@ -2,7 +2,6 @@ from flask import Flask, render_template, request
 import re
 import math
 import requests
-import pprint
 
 app = Flask(__name__)
 

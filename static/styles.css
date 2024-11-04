@@ -3,3 +3,7 @@ body {
     color: white;
 }
 
+.page-content {
+    margin: 10px;
+    border: 1px, white;
+}

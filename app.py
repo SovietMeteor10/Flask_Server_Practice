@@ -54,7 +54,7 @@ def process_query(query_string):
     if "is the largest:" in query_string:
         numbers = re.findall(r"\d+", query_string)
         return str(max([int(num) for num in numbers]))
-
+    """
     if "is both a square and a cube:" in query_string:
 
         numbers = re.findall(r"\d+", query_string)
@@ -65,7 +65,7 @@ def process_query(query_string):
             if (pow(i, 1 / 2).is_integer() and pow(i, 1 / 3).is_integer())
         ]
         return ", ".join(map(str, val))
-
+    """
     if "are primes" in query_string:
         numbers = re.findall(r"\d+", query_string)
         vals = [int(num) for num in numbers]
